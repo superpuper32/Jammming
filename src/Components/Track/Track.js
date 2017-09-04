@@ -1,17 +1,16 @@
 import React from 'react';
-import Track from './Track';
-import './TrackList.css';
+import './Track.css';
 
 class Track extends React.Component {
   constructor(props) {
     super(props);
+
     this.addTrack = this.addTrack.bind(this);
     this.removeTrack = this.removeTrack.bind(this);
   }
 
   renderAction() {
-    isRemoval ? '-' : '+';
-    return onClick={this.addTrack} : return onClick={this.removeTrack}
+    this.props.isRemoval ? return <a className="Track-ation" onClick={this.removeTrack}>-</a> : return <a className="Track-action" onClick={this.addTrack}>+</a>;
   }
 
   addTrack() {
@@ -29,7 +28,7 @@ class Track extends React.Component {
           <h3>{this.props.track.name}</h3>
           <p>{this.props.track.artist} | {this.props.track.album}</p>
         </div>
-        <a className="Track-action" onClick={}>{this.isRemoval}</a>
+        {this.renderAction()}
       </div>
     );
   }
